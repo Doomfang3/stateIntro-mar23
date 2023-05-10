@@ -1,8 +1,6 @@
-import { useState } from 'react'
+import DisplayCount from './DisplayCount'
 
-const Count = () => {
-  const [count, setCount] = useState(0)
-
+const Count = ({ count, setCount }) => {
   return (
     <div className='card'>
       {/* 
@@ -14,12 +12,15 @@ const Count = () => {
             setCount((previousValue) => { return newValue })
             setCount(prevCount => prevCount + 1)
       */}
-      <button onClick={() => setCount(prevCount => prevCount + 1)}>count is {count}</button>
+      <button onClick={() => setCount(prevCount => prevCount + 1)}>Add 1</button>
       {/* Condition ? iftrue : iffalse */}
       {count % 2 === 0 ? (
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+        <>
+          <DisplayCount count={count} />
+          <p>
+            Edit <code>src/App.jsx</code> and save to test HMR
+          </p>
+        </>
       ) : null}
     </div>
   )
